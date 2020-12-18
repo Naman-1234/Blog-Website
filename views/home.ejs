@@ -1,0 +1,21 @@
+<%- include('./Partials/header') -%>
+<h1>Home</h1>
+<p><%=homePage%></p>
+<!--   Below we are using Previous version of Loop,Now we will use foreach loop -->
+<!-- <p>
+    <%for(let i=0;i<arr.length;i++){%>
+        <h1><%=arr[i].title%></h1>
+        <p><%=arr[i].post%></p>
+        <%}%>
+</p> --> 
+
+    <% arr.forEach((object)=>{ %>
+        <div >
+        <h1><%= object.title %></h1>
+        <p><%= object.post.substring(0,Math.min(101,object.post.length))+"..." %>
+        <a href="/posts/<%= object.title%>">Read More</a>
+        </p>
+    </div>
+    <% }); %>
+
+<%- include('./Partials/footer.ejs') -%>
